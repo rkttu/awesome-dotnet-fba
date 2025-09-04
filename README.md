@@ -25,7 +25,9 @@ File-based Apps is an innovative feature introduced in .NET 10 that allows you t
 - Your preferred text editor or IDE
   - **Visual Studio Code**: Lightweight development environment
   - **Any VSCode OSS-based Editors**: Cursor, Amazon Kiro, Windsurf, Eclipse Theia, etc.
-  - **C# Extension**
+- C# Extension for VS Code (Roslyn/OmniSharp LSP included)
+  - [For Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+  - [For Any VSCode OSS-based forks (Including Cursor, Amazon Kiro, Windsurf, Eclipse Theia, etc.)](https://open-vsx.org/extension/dotnetdev-kr-custom/csharp)
 
 ## 🤝 Contributing
 
