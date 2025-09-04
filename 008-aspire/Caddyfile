@@ -1,0 +1,7 @@
+:80 {
+    encode gzip
+    reverse_proxy wordpress:80
+    header {
+        X-Forwarded-Proto {scheme}
+    }
+}

@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json.schemastore.org/aspire-8.0.json",
+  "resources": {
+    "MySqlRootPassword": {
+      "type": "parameter.v0",
+      "value": "{MySqlRootPassword.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string",
+          "secret": true
+        }
+      }
+    },
+    "MySqlDatabase": {
+      "type": "parameter.v0",
+      "value": "{MySqlDatabase.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "MySqlUser": {
+      "type": "parameter.v0",
+      "value": "{MySqlUser.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "MySqlPassword": {
+      "type": "parameter.v0",
+      "value": "{MySqlPassword.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string",
+          "secret": true
+        }
+      }
+    },
+    "mysql": {
+      "type": "container.v0",
+      "image": "docker.io/mysql:latest",
+      "volumes": [
+        {
+          "name": "mysql-data",
+          "target": "/var/lib/mysql",
+          "readOnly": false
+        }
+      ],
+      "env": {
+        "MYSQL_ROOT_PASSWORD": "{MySqlRootPassword.value}",
+        "MYSQL_DATABASE": "{MySqlDatabase.value}",
+        "MYSQL_USER": "{MySqlUser.value}",
+        "MYSQL_PASSWORD": "{MySqlPassword.value}"
+      },
+      "bindings": {
+        "mysql-tcp": {
+          "scheme": "tcp",
+          "protocol": "tcp",
+          "transport": "tcp",
+          "targetPort": 3306
+        }
+      }
+    },
+    "phpmyadmin": {
+      "type": "container.v0",
+      "image": "docker.io/phpmyadmin:latest",
+      "env": {
+        "PMA_HOST": "mysql:3306",
+        "PMA_USER": "root",
+        "PMA_PASSWORD": "{MySqlRootPassword.value}"
+      },
+      "bindings": {
+        "http": {
+          "scheme": "http",
+          "protocol": "tcp",
+          "transport": "http",
+          "port": 8080,
+          "targetPort": 80
+        }
+      }
+    },
+    "wordpress": {
+      "type": "container.v0",
+      "image": "docker.io/wordpress:latest",
+      "volumes": [
+        {
+          "name": "wp-data",
+          "target": "/var/www/html",
+          "readOnly": false
+        }
+      ],
+      "env": {
+        "WORDPRESS_DB_HOST": "mysql:3306",
+        "WORDPRESS_DB_NAME": "{MySqlDatabase.value}",
+        "WORDPRESS_DB_USER": "{MySqlUser.value}",
+        "WORDPRESS_DB_PASSWORD": "{MySqlPassword.value}",
+        "WORDPRESS_CONFIG_EXTRA": "if (isset($_SERVER[\u0027HTTP_X_FORWARDED_PROTO\u0027]) \u0026\u0026 $_SERVER[\u0027HTTP_X_FORWARDED_PROTO\u0027] === \u0027https\u0027) {\r\n    $_SERVER[\u0027HTTPS\u0027] = \u0027on\u0027;\r\n}"
+      },
+      "bindings": {
+        "wp-http": {
+          "scheme": "http",
+          "protocol": "tcp",
+          "transport": "http",
+          "port": 8081,
+          "targetPort": 80
+        }
+      }
+    },
+    "caddy": {
+      "type": "container.v0",
+      "image": "docker.io/caddy:latest",
+      "bindMounts": [
+        {
+          "source": "Caddyfile",
+          "target": "/etc/caddy/Caddyfile",
+          "readOnly": true
+        }
+      ],
+      "bindings": {
+        "http": {
+          "scheme": "http",
+          "protocol": "tcp",
+          "transport": "http",
+          "targetPort": 80
+        }
+      }
+    }
+  }
+}
