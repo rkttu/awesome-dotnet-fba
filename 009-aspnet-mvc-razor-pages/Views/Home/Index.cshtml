@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "홈";
+}
+
+@{
+    var poco = new SamplePoco();
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>@ViewData["Message"]</p>
+
+<ul>
+    <li><a href="/Home/Index">Home/Index</a></li>
+    <li><a href="/Home/About">Home/About</a></li>
+    <li><a href="/ping">Minimal API /ping</a></li>
+    <li><a href="/RazorPagesDemo">/RazorPagesDemo (Razor Page)</a></li>
+</ul>
+
+<p>Current Datetime is: @poco.CurrentDateTime</p>
