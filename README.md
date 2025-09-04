@@ -4,6 +4,7 @@ A curated collection of awesome code samples for .NET 10's File-based Apps featu
 
 [![.NET](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/rkttu?style=flat&logo=github&logoColor=white&labelColor=gray&color=pink)](https://github.com/sponsors/rkttu)
 
 ## 📖 What are File-based Apps?
 
