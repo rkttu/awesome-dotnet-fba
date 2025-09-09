@@ -1,0 +1,4 @@
+{
+  "app": "dotnet run cdksample.cs",
+  "requireApproval": "never"
+}
