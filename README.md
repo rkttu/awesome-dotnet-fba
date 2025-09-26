@@ -6,6 +6,10 @@ A curated collection of awesome code samples for .NET 10's File-based Apps featu
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/rkttu?style=flat&logo=github&logoColor=white&labelColor=gray&color=pink)](https://github.com/sponsors/rkttu)
 
+> [!NOTE]
+> **🎯 Ready-to-use Templates Available!** These samples are now packaged as dotnet templates for instant project scaffolding.  
+> Install with: `dotnet new install FbaTemplates` → **[dotnet-fba-templates](https://github.com/rkttu/dotnet-fba-templates)**
+
 ## 📋 Sample Overview
 
 | Directory | Sample Files | Description | Key Technologies |
