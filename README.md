@@ -24,6 +24,7 @@ A curated collection of awesome code samples for .NET 10's File-based Apps featu
 | **012-pythonnet** | [pythonnet.cs](012-pythonnet/pythonnet.cs) | Python.NET integration | Python.NET, Language Interop |
 | **013-embeddinggemma-sqlite-vec** | [embedding.cs](013-embeddinggemma-sqlite-vec/embedding.cs) | Embedding and vector database operations | SQLite, Vector Search, Embeddings |
 | **014-netfx-with-log4net** | [Program.cs](014-netfx-with-log4net/Program.cs) | .NET Framework application with logging | .NET Framework, log4net |
+| **015-ikvm-mvn-korean-nlp** | [Program.cs](015-ikvm-mvn-korean-nlp/Program.cs) | Korean NLP using Java libraries via IKVM.NET | IKVM.NET, Korean NLP, Java Interop |
 
 ## 📖 What are File-based Apps
 
@@ -156,6 +157,12 @@ Embedding and vector database example.
 .NET Framework application with logging example.
 
 - **Program.cs** - Traditional .NET Framework application
+
+### 015-ikvm-mvn-korean-nlp
+
+IKVM.NET integration with Java-based Korean NLP libraries.
+
+- **Program.cs** - Korean text processing using KKMA and Open Korean Text libraries through IKVM.NET
 
 ## 🤝 Contributing
 

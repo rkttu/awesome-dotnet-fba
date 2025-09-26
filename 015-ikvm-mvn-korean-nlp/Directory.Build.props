@@ -1,0 +1,7 @@
+<Project>
+    <ItemGroup>
+        <!-- https://github.com/konlpy/konlpy/blob/master/konlpy/java/kkma-2.0.jar -->
+        <IkvmReference Include="kkma-2.0.jar" />
+        <MavenReference Include="org.openkoreantext:open-korean-text" Version="2.3.1" />
+    </ItemGroup>
+</Project>
